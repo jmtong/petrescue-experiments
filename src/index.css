@@ -1,0 +1,186 @@
+:root {
+  --bg: #f6f1e8;
+  --bg-raised: #fffdf8;
+  --ink: #1a1714;
+  --muted: #6a635b;
+  --rule: #d9d0c3;
+  --accent: #b44a2a;
+
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", Menlo, monospace;
+
+  --space-xs: 0.35rem;
+  --space-sm: 0.7rem;
+  --space-md: 1.25rem;
+  --space-lg: 2.25rem;
+  --space-xl: 4rem;
+
+  --measure: 42rem;
+  --page: 72rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  margin: 0 0 var(--space-sm);
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin: 0 0 var(--space-xs);
+}
+
+p {
+  margin: 0 0 var(--space-md);
+  max-width: var(--measure);
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+/* Index */
+
+.site {
+  width: min(var(--page), calc(100% - var(--space-lg) * 2));
+  margin: 0 auto;
+  padding: var(--space-xl) 0 var(--space-lg);
+}
+
+.site-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--space-sm);
+}
+
+.site-intro {
+  color: var(--muted);
+  margin-bottom: var(--space-xl);
+}
+
+.experiment-index {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.experiment-index a {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+}
+
+.experiment-index .number {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding-top: 0.35rem;
+}
+
+.experiment-index h2 {
+  font-size: 1.5rem;
+}
+
+.experiment-index p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Experiment chrome */
+
+.experiment {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.experiment-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-sm) var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--rule);
+}
+
+.experiment-header a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.experiment-header h1 {
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+.experiment-header .number {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-right: var(--space-xs);
+}
+
+.experiment-body {
+  flex: 1;
+  padding: var(--space-lg);
+}
