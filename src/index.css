@@ -106,7 +106,23 @@ code {
 
 .site-intro {
   color: var(--muted);
-  margin-bottom: var(--space-xl);
+  margin-bottom: 0;
+}
+
+.site-context {
+  margin: 0 0 var(--space-xl);
+}
+
+.site-context-block {
+  margin: 0 0 var(--space-lg);
+}
+
+.site-context-block .site-kicker {
+  margin-bottom: var(--space-xs);
+}
+
+.site-context-block p:last-of-type {
+  margin-bottom: 0;
 }
 
 .experiment-index {
@@ -183,4 +199,26 @@ code {
 .experiment-body {
   flex: 1;
   padding: var(--space-lg);
+}
+
+.experiment:has(.split-futures) .experiment-header {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: var(--bg);
+}
+
+.experiment:has(.split-futures) .experiment-body {
+  padding: 0;
+}
+
+.experiment:has(.where-cats) .experiment-header {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: var(--bg);
+}
+
+.experiment:has(.where-cats) .experiment-body {
+  padding: 0;
 }

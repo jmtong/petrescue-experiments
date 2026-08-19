@@ -1,0 +1,366 @@
+.experiment:has(.where-cats) .experiment-header {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: var(--bg);
+}
+
+.experiment:has(.where-cats) .experiment-body {
+  padding: 0;
+}
+
+.where-cats {
+  --paper: #f3eadb;
+  --ground: #dce6cf;
+  --care: #efe6d6;
+  --house: #efe4d2;
+  --roof: #b44a2a;
+  --tree: #6f8a5c;
+  min-height: calc(100svh - 4.5rem);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  padding: 0.6rem 1.4rem 1.4rem;
+}
+
+.where-cats.is-compare {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.where-cats.is-compare .where-headline {
+  max-width: 46rem;
+}
+
+.compare-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-height: 0;
+}
+
+.compare-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 10.5rem;
+  gap: 0.9rem 1.1rem;
+  align-items: center;
+  min-height: 0;
+  flex: 1;
+}
+
+.where-scene.is-compact {
+  min-height: 0;
+  height: 100%;
+  max-height: 28vh;
+}
+
+.compare-stats {
+  margin: 0;
+}
+
+.compare-stats dt {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  margin: 0 0 0.25rem;
+}
+
+.compare-stats dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.flow-path.is-still {
+  animation: none;
+  opacity: 0.7;
+}
+
+.where-bar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1.2rem;
+  align-items: baseline;
+  padding: 0.2rem 0 0.7rem;
+}
+
+.where-year {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+}
+
+.where-year strong {
+  font-size: 1.2rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.where-headline {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.4vw, 1.7rem);
+  line-height: 1.25;
+  max-width: 38rem;
+}
+
+.where-actions {
+  justify-self: end;
+}
+
+.play {
+  appearance: none;
+  border: 1.5px solid var(--ink);
+  background: var(--bg-raised);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.play:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.play:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.play.is-next {
+  animation: continue-pulse 1.8s ease-in-out infinite;
+}
+
+.play.is-next:hover {
+  animation: none;
+}
+
+@keyframes continue-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--ink) 10%, transparent);
+  }
+}
+
+.where-scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 28rem;
+  background: var(--paper);
+}
+
+.where-scene .paper {
+  fill: var(--paper);
+}
+
+.where-scene .ground {
+  fill: var(--ground);
+}
+
+.where-scene .care-ground {
+  fill: var(--care);
+}
+
+.place-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  fill: var(--ink);
+}
+
+.houses .roof {
+  fill: var(--roof);
+  stroke: var(--ink);
+  stroke-width: 1.4;
+}
+
+.houses .wall {
+  fill: var(--house);
+  stroke: var(--ink);
+  stroke-width: 1.4;
+}
+
+.houses .tree {
+  fill: var(--tree);
+  stroke: var(--ink);
+  stroke-width: 1.3;
+}
+
+.flow-path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-dasharray: 10 8;
+  animation: flow-dash 1.2s linear infinite;
+}
+
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -36;
+  }
+}
+
+.flow-arrow {
+  fill: var(--accent);
+}
+
+.desex-stop rect {
+  fill: var(--bg-raised);
+  stroke: var(--ink);
+  stroke-width: 1.6;
+  stroke-dasharray: 6 5;
+}
+
+.desex-stop path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.desex-stop text {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  fill: var(--ink);
+  text-anchor: middle;
+}
+
+.care-building rect {
+  fill: #f7f0e4;
+  stroke: var(--ink);
+  stroke-width: 1.7;
+}
+
+.care-building path {
+  stroke: var(--ink);
+  stroke-width: 1;
+  opacity: 0.18;
+}
+
+.vacant {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 5;
+  opacity: 0.35;
+}
+
+.cat-layer {
+  transform-box: view-box;
+  transform-origin: 0 0;
+  transition:
+    transform 0.95s cubic-bezier(0.37, 0.1, 0.18, 1),
+    opacity 0.45s ease;
+}
+
+.where-scene.is-snap .cat-layer {
+  transition: none;
+}
+
+.cat .body,
+.cat .ear {
+  fill: var(--ink);
+}
+
+.cat .tail {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.cat.sterilised .body,
+.cat.sterilised .ear {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.cat.newcomer .body,
+.cat.newcomer .ear {
+  fill: var(--accent);
+}
+
+.cat.newcomer .tail {
+  stroke: var(--accent);
+}
+
+.where-foot {
+  min-height: 5.2rem;
+  padding-top: 0.85rem;
+}
+
+.where-cats.is-compare .where-foot {
+  min-height: 0;
+}
+
+.where-foot .hint,
+.where-foot .key,
+.where-foot .baseline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.where-foot .key {
+  margin-top: 0.4rem;
+}
+
+.indices {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+  align-items: end;
+}
+
+.indices dt {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+
+.indices dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.ending p {
+  margin: 0 0 0.45rem;
+  max-width: 42rem;
+}
+
+@media (max-width: 900px) {
+  .where-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .where-actions {
+    justify-self: start;
+  }
+
+  .compare-row {
+    grid-template-columns: 1fr;
+  }
+
+  .where-scene.is-compact {
+    max-height: 22vh;
+  }
+}

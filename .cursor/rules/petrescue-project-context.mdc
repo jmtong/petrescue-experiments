@@ -1,0 +1,15 @@
+---
+description: Read stable PetRescue context and source research before changing experiments
+alwaysApply: true
+---
+
+# PetRescue experiments — context first
+
+Before making substantive changes to PetRescue experiments (new or existing prototypes, copy, numbers, model behaviour, or research claims):
+
+1. Read `docs/PROJECT_CONTEXT.md`.
+2. For any statistic, definition, model behaviour, or causal claim, check `docs/Sources/` and do not invent or “fill in” findings that are not in those documents.
+
+Detailed experiment notes live in the designer’s Obsidian vault. Do **not** create per-experiment markdown files in this repository.
+
+This repo is a static, low-fidelity editorial prototype. Do not change unrelated experiment behaviour unless asked. Toy neighbourhood interactions must not be presented as computing the research-model indices unless that model is actually implemented from the source briefing.

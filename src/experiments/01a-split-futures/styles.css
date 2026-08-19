@@ -1,0 +1,233 @@
+.split-futures {
+  --stage-top: 3.4rem;
+  color: var(--ink);
+}
+
+.split-futures .scroll-track {
+  height: 520vh;
+}
+
+.split-futures .stage {
+  position: sticky;
+  top: var(--stage-top);
+  height: calc(100svh - var(--stage-top));
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  background: #f6f1e8;
+}
+
+.split-futures .year-indicator {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 0.55rem 1rem 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.split-futures .year-indicator strong {
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+
+.split-futures .year-ticks {
+  display: flex;
+  gap: 1.1rem;
+}
+
+.split-futures .year-ticks span {
+  opacity: 0.35;
+}
+
+.split-futures .year-ticks span.on {
+  opacity: 1;
+  color: var(--ink);
+}
+
+.split-futures .scene {
+  position: relative;
+  min-height: 0;
+}
+
+.split-futures .panels {
+  position: absolute;
+  inset: 0;
+}
+
+.split-futures .panel {
+  --panel-w: min(46vw, 34rem);
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: var(--panel-w);
+  height: 100%;
+  margin-left: calc(var(--panel-w) / -2);
+}
+
+.split-futures .panel svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: #e4edd8;
+}
+
+.split-futures .panel-label,
+.split-futures .place-label,
+.split-futures .indices {
+  font-family: var(--font-serif);
+  fill: var(--ink);
+}
+
+.split-futures .panel-label {
+  font-size: 15px;
+}
+
+.split-futures .place-label {
+  font-size: 11px;
+  fill: var(--muted);
+}
+
+.split-futures .indices {
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.split-futures .indices .quiet {
+  fill: var(--muted);
+  font-size: 9px;
+}
+
+.split-futures .cat circle.body {
+  fill: #c45c2a !important;
+}
+
+.split-futures .cat.sterilised circle.body {
+  fill: #f6f1e8 !important;
+  stroke: #c45c2a;
+  stroke-width: 1.8;
+}
+
+.split-futures .cat.sterilised .ear {
+  fill: #f6f1e8 !important;
+  stroke: #c45c2a;
+  stroke-width: 1.1;
+}
+
+.split-futures .cat .ear {
+  fill: #c45c2a !important;
+}
+
+.split-futures .ink {
+  fill: none;
+  stroke: #8a7360;
+  stroke-width: 1.35;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.split-futures .ink-soft {
+  fill: none;
+  stroke: #c9bba8;
+  stroke-width: 1.2;
+  opacity: 1;
+}
+
+.split-futures .street-land {
+  fill: #e4edd8 !important;
+  stroke: #b7c4a8;
+  stroke-width: 1.4;
+}
+
+.split-futures .roof {
+  fill: #edd9c4;
+  stroke: #8a7360;
+  stroke-width: 1.2;
+}
+
+.split-futures .wall {
+  fill: #fffaf2;
+  stroke: #8a7360;
+  stroke-width: 1.2;
+}
+
+.split-futures .tree {
+  fill: #d5e0c8;
+  stroke: #8a9a78;
+  stroke-width: 1.1;
+}
+
+.split-futures .split-rule {
+  position: absolute;
+  top: 8%;
+  bottom: 18%;
+  left: 50%;
+  width: 1px;
+  background: #c9bba8;
+  transform: translateX(-50%);
+  transform-origin: top;
+  pointer-events: none;
+}
+
+.split-futures .explain {
+  z-index: 3;
+  padding: 0.35rem 1.1rem 0.9rem;
+  background: #f6f1e8;
+}
+
+.split-futures .explain p {
+  margin: 0;
+  max-width: none;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.split-futures .explain-one {
+  text-align: center;
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+.split-futures .explain-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  width: min(92vw, 68rem);
+  margin-inline: auto;
+}
+
+.split-futures .key {
+  margin-top: 0.45rem !important;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.68rem !important;
+  letter-spacing: 0.03em;
+  color: var(--muted) !important;
+}
+
+@media (max-width: 720px) {
+  .split-futures .year-ticks {
+    display: none;
+  }
+
+  .split-futures .panel {
+    --panel-w: 48vw;
+  }
+
+  .split-futures .explain-split {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .split-futures .explain p {
+    font-size: 0.78rem;
+  }
+}

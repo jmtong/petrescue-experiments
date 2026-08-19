@@ -1,0 +1,475 @@
+.experiment:has(.follow-a-cat) .experiment-header {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: var(--bg);
+}
+
+.experiment-body:has(.follow-a-cat) {
+  padding: 0;
+}
+
+.follow-a-cat {
+  --follow-paper: #f3eadb;
+  --follow-ground: #dce6cf;
+  --follow-road: #cbbba6;
+  --follow-house: #efe4d2;
+  --follow-roof: #b44a2a;
+  --follow-tree: #6f8a5c;
+  --follow-hero: #c45c2a;
+  --follow-other: #5d6d7a;
+  --follow-pound: #efe6d6;
+  color: var(--ink);
+}
+
+.follow-open {
+  width: min(40rem, calc(100% - 2.5rem));
+  margin: 0 auto;
+  padding: 3.5rem 0 4.5rem;
+}
+
+.follow-open .kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
+
+.follow-open h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  margin-bottom: 0.8rem;
+}
+
+.follow-open p {
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+
+.follow-open .hint {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 2rem;
+}
+
+.follow-scrolly {
+  position: relative;
+}
+
+.follow-stage {
+  position: sticky;
+  top: 3.4rem;
+  height: calc(100svh - 3.4rem);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background: var(--follow-paper);
+  overflow: hidden;
+}
+
+.follow-stage-label {
+  position: absolute;
+  top: 1rem;
+  left: 1.1rem;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.follow-svg {
+  width: 100%;
+  height: 100%;
+  max-height: 78svh;
+  display: block;
+  align-self: center;
+}
+
+.follow-svg .paper {
+  fill: var(--follow-paper);
+}
+
+.follow-svg .ground {
+  fill: var(--follow-ground);
+}
+
+.follow-svg .road {
+  fill: none;
+  stroke: var(--follow-road);
+  stroke-width: 28;
+  stroke-linecap: round;
+}
+
+.follow-svg .house path,
+.follow-svg .house rect {
+  stroke: var(--ink);
+  stroke-width: 2.2;
+  fill: var(--follow-house);
+}
+
+.follow-svg .roof {
+  fill: none;
+  stroke: var(--follow-roof);
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.follow-svg .door {
+  fill: #d7c4a8;
+}
+
+.follow-svg .pane {
+  fill: #f7f1e4;
+}
+
+.follow-svg .chimney {
+  fill: #c9b49a;
+}
+
+.follow-svg .tree ellipse {
+  fill: var(--follow-tree);
+  stroke: var(--ink);
+  stroke-width: 1.8;
+}
+
+.follow-svg .trunk {
+  fill: #7a5a3a;
+  stroke: var(--ink);
+  stroke-width: 1.6;
+}
+
+.follow-svg .bin rect {
+  fill: #9aa58c;
+  stroke: var(--ink);
+  stroke-width: 1.6;
+}
+
+.follow-svg .territory {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.6;
+  stroke-dasharray: 5 7;
+  opacity: 0.55;
+  transition: opacity 0.6s ease, stroke 0.6s ease;
+}
+
+.follow-svg .territory.is-empty {
+  stroke: var(--accent);
+  opacity: 0.95;
+  animation: pulse-empty 1.6s ease-in-out infinite;
+}
+
+.follow-svg .territory-label,
+.follow-svg .pound-label,
+.follow-svg .no-kittens-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  fill: var(--muted);
+}
+
+.follow-svg .pound rect {
+  fill: var(--follow-pound);
+  stroke: var(--ink);
+  stroke-width: 2;
+  transition: fill 0.5s ease, stroke 0.5s ease;
+}
+
+.follow-svg .pound-hatch {
+  stroke: none;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.follow-svg .pound.is-hot rect:first-child {
+  fill: #f3d7c8;
+  stroke: var(--accent);
+}
+
+.follow-svg .street-world {
+  transform-box: view-box;
+  transform-origin: 250px 418px;
+  transition: opacity 1s ease, transform 1.2s ease;
+}
+
+.follow-svg .street-world.is-faded {
+  opacity: 0.12;
+  transform: scale(0.42);
+}
+
+.follow-svg .actor,
+.follow-svg .trap,
+.follow-svg .mark,
+.follow-svg .cage-drop {
+  transform-box: fill-box;
+}
+
+.follow-svg .actor {
+  transition: transform 1s cubic-bezier(0.4, 0.1, 0.2, 1), opacity 0.7s ease;
+}
+
+.follow-svg .actor.hero.is-gone {
+  opacity: 0;
+}
+
+.follow-svg .actor.replacement {
+  opacity: 0;
+  transform: translate(-80px, 418px);
+}
+
+.follow-svg .actor.replacement.is-on {
+  opacity: 1;
+  transform: translate(248px, 418px);
+}
+
+.follow-svg .wander {
+  animation: wander 5s ease-in-out infinite;
+}
+
+.follow-svg .cat-body .torso,
+.follow-svg .cat-body .head,
+.follow-svg .cat-body .ear,
+.follow-svg .cat-body .tail {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.follow-svg .cat-body.hero .torso,
+.follow-svg .cat-body.hero .head,
+.follow-svg .cat-body.hero .ear,
+.follow-svg .cat-body.hero .tail {
+  fill: var(--follow-hero);
+}
+
+.follow-svg .cat-body.other .torso,
+.follow-svg .cat-body.other .head,
+.follow-svg .cat-body.other .ear,
+.follow-svg .cat-body.other .tail {
+  fill: var(--follow-other);
+}
+
+.follow-svg .eye {
+  fill: var(--ink);
+}
+
+.follow-svg .cat-body.is-sterilised .torso,
+.follow-svg .cat-body.is-sterilised .head,
+.follow-svg .cat-body.is-sterilised .ear {
+  fill: #d08a4a;
+}
+
+.follow-svg .ear-tip-mark {
+  fill: none;
+  stroke: #1a1714;
+  stroke-width: 1.8;
+}
+
+.follow-svg .trap {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.follow-svg .trap.is-on {
+  opacity: 1;
+}
+
+.follow-svg .trap .cage-drop {
+  transform: translateY(-36px);
+  transition: transform 0.55s ease;
+}
+
+.follow-svg .trap.is-on .cage-drop {
+  transform: none;
+}
+
+
+.follow-svg .trap .cage,
+.follow-svg .trap line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.2;
+}
+
+.follow-svg .trap.is-closed .cage {
+  fill: rgba(26, 23, 20, 0.06);
+}
+
+.follow-svg .no-kittens {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.follow-svg .no-kittens.is-on {
+  opacity: 1;
+}
+
+.follow-svg .ghost-kitten {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.5;
+}
+
+.follow-svg .strike {
+  stroke: var(--accent);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.follow-svg .field {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+
+.follow-svg .field.is-on {
+  opacity: 1;
+}
+
+.follow-svg .mark {
+  transition: opacity 0.8s ease, transform 0.9s ease;
+}
+
+.follow-svg .mark.is-drop {
+  opacity: 0.07;
+}
+
+.follow-svg .cat-mark {
+  fill: var(--follow-hero);
+  stroke: var(--ink);
+  stroke-width: 1.3;
+}
+
+.follow-stats {
+  position: absolute;
+  right: 1.1rem;
+  top: 3.2rem;
+  max-width: 16rem;
+  font-family: var(--font-serif);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.follow-stats.is-on {
+  opacity: 1;
+  transform: none;
+}
+
+.follow-stats .stat-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.45rem;
+}
+
+.follow-stats .stat {
+  margin: 0 0 0.85rem;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.follow-stats .stat.is-on {
+  opacity: 1;
+  transform: none;
+}
+
+.follow-stats .nums {
+  display: block;
+  font-size: 1.28rem;
+  letter-spacing: -0.03em;
+}
+
+.follow-steps {
+  position: relative;
+  z-index: 1;
+  margin-top: calc(-100svh + 3.4rem);
+}
+
+.follow-step {
+  min-height: 88svh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 1.1rem 12svh;
+  pointer-events: none;
+}
+
+.follow-caption {
+  max-width: 28rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  line-height: 1.35;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  padding: 0.85rem 0.1rem 0.2rem;
+  margin: 0;
+}
+
+.follow-close {
+  width: min(40rem, calc(100% - 2.5rem));
+  margin: 0 auto;
+  padding: 4rem 0 6rem;
+  color: var(--muted);
+}
+
+@keyframes wander {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(14px, -4px);
+  }
+}
+
+@keyframes pulse-empty {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .follow-svg .wander,
+  .follow-svg .territory.is-empty {
+    animation: none;
+  }
+
+  .follow-svg .actor,
+  .follow-svg .street-world,
+  .follow-svg .trap,
+  .follow-svg .mark,
+  .follow-stats,
+  .follow-stats .stat {
+    transition: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .follow-stats {
+    right: 0.8rem;
+    top: auto;
+    bottom: 28svh;
+    max-width: 11.5rem;
+  }
+
+  .follow-stats .nums {
+    font-size: 1.1rem;
+  }
+}
