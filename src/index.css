@@ -184,9 +184,21 @@ code {
   color: var(--muted);
 }
 
+.experiment-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.7rem;
+  margin-left: auto;
+}
+
+.experiment-nav a[aria-current='page'] {
+  color: var(--ink);
+}
+
 .experiment-header h1 {
   font-size: 1.35rem;
   margin: 0;
+  flex: 1 0 100%;
 }
 
 .experiment-header .number {

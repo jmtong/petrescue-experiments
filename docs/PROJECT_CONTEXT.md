@@ -53,6 +53,12 @@ Current explorations:
     * 01d Manage the Neighbourhood
     * 01e Where Did the Cats Go
     * 01f Two Counts
+    * 01g Catching cats vs desexing them
+    * 01h Branching family tree
+    * 01i Filling the neighbourhood
+    * 01j The Cat Distribution System
+    * 01k Illustrated cat faces
+    * 01l Why desexing
 
 ## Design principles
 
@@ -198,6 +204,12 @@ Do not change unrelated prototypes when adding a new one, unless asked.
 | 01d | `src/experiments/01d-manage-the-neighbourhood` | Interactive tool-drop neighbourhood; model figures are supplied, not computed from clicks. |
 | 01e | `src/experiments/01e-where-did-the-cats-go` | Flow between neighbourhood and care; year-10 indices are supplied, not computed. |
 | 01f | `src/experiments/01f-two-counts` | Street stock vs door flow; trap-and-remove paradox, then sterilise contrast. |
+| 01g | `src/experiments/01g-trapping-vs-sterilising` | Catch vs desex; year-10 indices are supplied. |
+| 01h | `src/experiments/01h-branching-family-tree` | Toy branching family tree; not the research model. |
+| 01i | `src/experiments/01i-filling-the-neighbourhood` | Toy spatial neighbourhood fill; not the research model. |
+| 01j | `src/experiments/01j-cat-distribution-system` | Toy Cat Distribution System metaphor; not the research model. |
+| 01k | `src/experiments/01k-illustrated-cat-faces` | Procedural ink-doodle cat faces; not the research model. |
+| 01l | `src/experiments/01l-why-desexing` | Scroll story: one cat → neighbourhood → two illustrative futures. Not the research model. |
 
 Do not “fix” numbering, copy, or behaviour unless asked.
 

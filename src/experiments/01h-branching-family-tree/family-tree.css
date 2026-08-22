@@ -1,0 +1,392 @@
+.experiment-body:has(.family-tree) {
+  padding: 0;
+}
+
+.experiment:has(.family-tree) .experiment-header {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: var(--bg);
+}
+
+.family-tree {
+  --paper: var(--bg);
+  --card: var(--bg-raised);
+  --branch: #6b5344;
+  --branch-soft: #b7a694;
+  --collar: #b44a2a;
+  --pound: #8a7464;
+  position: relative;
+  height: calc(100svh - 4.7rem);
+  min-height: 36rem;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.ft-stage {
+  position: absolute;
+  inset: 0 0 5.4rem;
+}
+
+.ft-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ft-note {
+  position: absolute;
+  left: var(--space-lg);
+  top: var(--space-md);
+  margin: 0;
+  max-width: 20rem;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.25;
+  color: var(--ink);
+  z-index: 2;
+}
+
+.ft-note span {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.ft-status {
+  position: absolute;
+  left: 50%;
+  bottom: 6.1rem;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  text-align: center;
+  max-width: 30rem;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ft-status.is-on {
+  opacity: 1;
+}
+
+.ft-year {
+  opacity: 0.22;
+  transition: opacity 0.5s ease;
+}
+
+.ft-year.is-on {
+  opacity: 1;
+}
+
+.ft-year text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  fill: var(--muted);
+}
+
+.ft-year line {
+  stroke: var(--rule);
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+  opacity: 0.7;
+}
+
+.ft-impound {
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+
+.ft-impound.is-on {
+  opacity: 1;
+}
+
+.ft-impound rect {
+  fill: color-mix(in srgb, var(--card) 88%, #d8cfc3);
+  stroke: var(--pound);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 3;
+}
+
+.ft-impound text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  fill: var(--pound);
+}
+
+.ft-impound-sub {
+  font-size: 9px !important;
+  letter-spacing: 0.08em !important;
+  opacity: 0.85;
+}
+
+.ft-branch {
+  fill: none;
+  stroke: var(--branch);
+  stroke-width: 1.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  opacity: 0;
+  transition: opacity 0.65s ease;
+}
+
+.ft-branch.is-on {
+  opacity: 0.72;
+}
+
+.ft-branch.is-pair {
+  stroke: var(--branch-soft);
+  stroke-width: 1.3;
+  stroke-dasharray: 3 3;
+  opacity: 0.9;
+}
+
+.ft-branch.is-dim {
+  stroke: var(--branch-soft);
+  opacity: 0.28;
+}
+
+.ft-cap {
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+
+.ft-cap.is-on {
+  opacity: 1;
+}
+
+.ft-cap path {
+  fill: none;
+  stroke: var(--collar);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ft-cap circle {
+  fill: var(--card);
+  stroke: var(--collar);
+  stroke-width: 2;
+}
+
+.ft-cat-slot {
+  transition: transform 1.05s cubic-bezier(0.37, 0.1, 0.18, 1);
+}
+
+.ft-cat {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  pointer-events: none;
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s cubic-bezier(0.37, 0.1, 0.18, 1);
+}
+
+.ft-cat.is-in {
+  opacity: 1;
+}
+
+.ft-cat.is-out {
+  opacity: 0;
+}
+
+.ft-cat.is-leaving {
+  opacity: 0.35;
+}
+
+.ft-cat.is-impounded {
+  opacity: 0.95;
+}
+
+.ft-cat.is-mate-slot.is-in {
+  opacity: 0.7;
+}
+
+.ft-card {
+  fill: var(--card);
+  stroke: color-mix(in srgb, var(--branch) 16%, white);
+  stroke-width: 1;
+}
+
+.ft-avatar {
+  fill: color-mix(in srgb, var(--paper) 75%, white);
+}
+
+.ft-ring {
+  fill: none;
+  stroke-width: 2.2;
+}
+
+.ft-face .body,
+.ft-face .ear {
+  fill: var(--ink);
+}
+
+.ft-face .tail {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.ft-face.is-secondary .body,
+.ft-face.is-secondary .ear {
+  fill: #5a534c;
+}
+
+.ft-face.is-secondary .tail {
+  stroke: #5a534c;
+}
+
+.is-mate .ft-card {
+  fill: color-mix(in srgb, var(--card) 70%, #ded7cc);
+  stroke-dasharray: 3 2;
+}
+
+.is-desexed .body,
+.is-desexed .ear {
+  fill: var(--card);
+  stroke: var(--ink);
+  stroke-width: 1.35;
+}
+
+.is-desexed .tail {
+  stroke: var(--ink);
+}
+
+.is-desexed .ft-card {
+  stroke: var(--collar);
+  stroke-width: 1.6;
+}
+
+.ft-collar {
+  fill: none;
+  stroke: var(--collar);
+  stroke-width: 1.6;
+}
+
+.ft-name {
+  font-family: var(--font-serif);
+  font-size: 9px;
+  fill: var(--muted);
+}
+
+.family-tree.is-year-3 .ft-branch.is-on,
+.family-tree.is-year-4 .ft-branch.is-on {
+  stroke-width: 1.15;
+}
+
+.family-tree.is-year-4 .ft-card {
+  stroke-width: 0.8;
+}
+
+.ft-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 1.1rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem 0.9rem;
+  width: min(46rem, calc(100% - 2rem));
+  padding: 0.45rem 0.6rem;
+  background: color-mix(in srgb, var(--card) 90%, transparent);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.ft-modes,
+.ft-transport {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.ft-transport {
+  gap: 0.15rem;
+  padding-left: 0.85rem;
+  border-left: 1px solid var(--rule);
+}
+
+.ft-modes button {
+  appearance: none;
+  margin: 0;
+  padding: 0.38rem 0.78rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.ft-modes button:hover {
+  color: var(--ink);
+}
+
+.ft-modes button.is-on {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.ft-transport button {
+  appearance: none;
+  margin: 0;
+  padding: 0.32rem 0.55rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.ft-transport button:hover {
+  color: var(--accent);
+}
+
+.family-tree.is-snap .ft-cat,
+.family-tree.is-snap .ft-cat-slot,
+.family-tree.is-snap .ft-branch,
+.family-tree.is-snap .ft-cap,
+.family-tree.is-snap .ft-status,
+.family-tree.is-snap .ft-impound,
+.family-tree.is-snap .ft-year {
+  transition: none;
+}
+
+@media (max-width: 720px) {
+  .ft-controls {
+    border-radius: 1.1rem;
+    bottom: 0.7rem;
+  }
+
+  .ft-transport {
+    width: 100%;
+    justify-content: center;
+    padding-left: 0;
+    padding-top: 0.35rem;
+    border-left: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .ft-status {
+    bottom: 7.2rem;
+  }
+}

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { experiments } from './data/experiments.ts'
+import { experimentHref, experiments } from './data/experiments.ts'
 
 export function Home() {
   return (
@@ -43,7 +43,7 @@ export function Home() {
       <ol className="experiment-index">
         {experiments.map((experiment) => (
           <li key={experiment.slug}>
-            <Link to={`/${experiment.slug}`}>
+            <Link to={experimentHref(experiment.slug)}>
               <span className="number">{experiment.number}</span>
               <span>
                 <h2>{experiment.title}</h2>

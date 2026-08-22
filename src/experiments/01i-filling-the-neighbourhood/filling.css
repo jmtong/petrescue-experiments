@@ -1,0 +1,362 @@
+.experiment-body:has(.filling-hood) {
+  padding: 0;
+}
+
+.experiment:has(.filling-hood) .experiment-header {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: var(--bg);
+}
+
+.filling-hood {
+  --paper: var(--bg);
+  --ground: #dce6cf;
+  --yard: #d5e0c4;
+  --park: #c9d9b4;
+  --lane: #cbbba6;
+  --house: #efe4d2;
+  --roof: #a85a3c;
+  --tree: #6f8a5c;
+  --collar: #b44a2a;
+  --pound: #8a7464;
+  position: relative;
+  height: calc(100svh - 4.7rem);
+  min-height: 36rem;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.fn-stage {
+  position: absolute;
+  inset: 0 0 5.4rem;
+}
+
+.fn-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fn-note {
+  position: absolute;
+  left: var(--space-lg);
+  top: var(--space-md);
+  margin: 0;
+  max-width: 20rem;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.25;
+  color: var(--ink);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fn-note span {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.fn-status {
+  position: absolute;
+  left: 50%;
+  bottom: 6.1rem;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  text-align: center;
+  max-width: 32rem;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fn-status.is-on {
+  opacity: 1;
+}
+
+.fn-paper {
+  fill: var(--paper);
+}
+
+.fn-yard {
+  fill: var(--yard);
+  opacity: 0.85;
+}
+
+.fn-yard-soft {
+  opacity: 0.55;
+}
+
+.fn-park {
+  fill: var(--park);
+  opacity: 0.9;
+}
+
+.fn-park-soft {
+  fill: color-mix(in srgb, var(--park) 70%, white);
+  opacity: 0.7;
+}
+
+.fn-lane {
+  fill: none;
+  stroke: var(--lane);
+  stroke-width: 42;
+  stroke-linecap: round;
+  opacity: 0.9;
+}
+
+.fn-house rect {
+  fill: var(--house);
+  stroke: var(--ink);
+  stroke-width: 1.4;
+}
+
+.fn-house .roof {
+  fill: var(--roof);
+  stroke: var(--ink);
+  stroke-width: 1.3;
+}
+
+.fn-house .door {
+  fill: #c4b29a;
+  stroke: var(--ink);
+  stroke-width: 1.1;
+}
+
+.fn-shed rect {
+  fill: #ddd2c0;
+  stroke: var(--ink);
+  stroke-width: 1.2;
+}
+
+.fn-shed .roof-flat {
+  fill: #9a7b62;
+}
+
+.fn-bin rect {
+  fill: #b7aea0;
+  stroke: var(--ink);
+  stroke-width: 1.1;
+}
+
+.fn-tree {
+  fill: var(--tree);
+  stroke: var(--ink);
+  stroke-width: 1.2;
+  opacity: 0.85;
+}
+
+.fn-year {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  fill: var(--muted);
+  opacity: 0.22;
+  transition: opacity 0.5s ease;
+}
+
+.fn-year.is-on {
+  opacity: 1;
+}
+
+.fn-trapped-cue {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.fn-trapped-cue.is-on {
+  opacity: 0.55;
+}
+
+.fn-trapped-cue text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  fill: var(--pound);
+}
+
+.fn-trapped-sub {
+  font-size: 9px !important;
+  letter-spacing: 0.08em !important;
+  opacity: 0.9;
+}
+
+.fn-cat {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  pointer-events: none;
+  transition:
+    opacity 0.75s ease,
+    transform 0.95s cubic-bezier(0.37, 0.1, 0.18, 1);
+}
+
+.fn-cat.is-in {
+  opacity: 1;
+}
+
+.fn-cat.is-out {
+  opacity: 0;
+  transition:
+    opacity 0.55s ease,
+    transform 0.7s cubic-bezier(0.5, 0, 0.4, 1);
+}
+
+.fn-face .body,
+.fn-face .ear {
+  fill: var(--ink);
+}
+
+.fn-face .tail {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.fn-face.is-kitten {
+  opacity: 0.92;
+}
+
+.fn-face.is-immigrant .body,
+.fn-face.is-immigrant .ear {
+  fill: #3d3833;
+}
+
+.fn-face.is-immigrant .tail {
+  stroke: #3d3833;
+}
+
+.fn-face.is-desexed .body,
+.fn-face.is-desexed .ear,
+.fn-cat.is-desexed .fn-face .body,
+.fn-cat.is-desexed .fn-face .ear {
+  fill: var(--bg-raised);
+  stroke: var(--ink);
+  stroke-width: 1.35;
+}
+
+.fn-face.is-desexed .tail,
+.fn-cat.is-desexed .fn-face .tail {
+  stroke: var(--ink);
+}
+
+.fn-collar {
+  fill: none;
+  stroke: var(--collar);
+  stroke-width: 1.6;
+}
+
+.fn-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 1.1rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem 0.9rem;
+  width: min(46rem, calc(100% - 2rem));
+  padding: 0.45rem 0.6rem;
+  background: color-mix(in srgb, var(--bg-raised) 90%, transparent);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.fn-modes,
+.fn-transport {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.fn-transport {
+  gap: 0.15rem;
+  padding-left: 0.85rem;
+  border-left: 1px solid var(--rule);
+}
+
+.fn-modes button {
+  appearance: none;
+  margin: 0;
+  padding: 0.38rem 0.78rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.fn-modes button:hover {
+  color: var(--ink);
+}
+
+.fn-modes button.is-on {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.fn-transport button {
+  appearance: none;
+  margin: 0;
+  padding: 0.32rem 0.55rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.fn-transport button:hover {
+  color: var(--accent);
+}
+
+.filling-hood.is-snap .fn-cat,
+.filling-hood.is-snap .fn-status,
+.filling-hood.is-snap .fn-trapped-cue,
+.filling-hood.is-snap .fn-year {
+  transition: none;
+}
+
+@media (max-width: 720px) {
+  .fn-controls {
+    border-radius: 1.1rem;
+    bottom: 0.7rem;
+  }
+
+  .fn-transport {
+    width: 100%;
+    justify-content: center;
+    padding-left: 0;
+    padding-top: 0.35rem;
+    border-left: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .fn-status {
+    bottom: 7.2rem;
+  }
+
+  .fn-note {
+    left: var(--space-md);
+    max-width: 14rem;
+    font-size: 1rem;
+  }
+}
